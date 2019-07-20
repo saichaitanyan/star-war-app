@@ -1,1 +1,87 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.tabledata {
+  font-size: small;
+  padding: 12px;
+}
+
+@media screen and (max-width: 425px) {
+
+  .mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    width: 100% !important;
+  }
+
+  .mview-head {
+    font-weight: 600;
+    color: #757575;
+    font-style: italic;
+  }
+
+  .mview-body {
+    color: #607d8b;
+    font-weight: 500;
+  }
+
+  .mobile_view {
+    display: block;
+    margin: 10px !important;
+    width: 100% !important;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
+
+  .web_view {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 727px) {
+  .mobile_view {
+    display: none;
+  }
+
+  .web_view {
+    display: block;
+  }
+}
+
+/* for scroll bar style*/
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  background-color: rgb(180, 180, 180);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(180, 180, 180);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 10px;
+  background-color: rgb(121, 121, 121);
+  border-radius: 10px;
+}

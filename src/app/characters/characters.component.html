@@ -1,0 +1,125 @@
+<div class="main">
+  <h5>List of Star Wars characters </h5>
+  <div class="character-content web_view">
+
+    <!-- table data -->
+    <div>
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search by Name">
+      </mat-form-field>
+      <table mat-table [dataSource]="dataSource" matSort [matSortActive]="">
+
+        <!-- character name column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name</th>
+          <td mat-cell *matCellDef="let character"> {{character?.name | titlecase}} </td>
+        </ng-container>
+
+        <!-- character height column -->
+        <ng-container matColumnDef="height">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Height</th>
+          <td mat-cell *matCellDef="let character"> {{character?.height}} </td>
+        </ng-container>
+
+        <!-- character mass column -->
+        <ng-container matColumnDef="mass">
+          <th mat-header-cell *matHeaderCellDef fxFlex="10px" mat-sort-header> Mass</th>
+          <td mat-cell *matCellDef="let character" fxFlex="10px"> {{character?.mass}} </td>
+        </ng-container>
+
+        <!-- character birth column -->
+        <ng-container matColumnDef="birth_year">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Birth</th>
+          <td mat-cell *matCellDef="let character"> {{character?.birth_year}} </td>
+        </ng-container>
+
+        <!-- character gender column -->
+        <ng-container matColumnDef="gender">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender</th>
+          <td mat-cell *matCellDef="let character"> {{character?.gender}} </td>
+        </ng-container>
+
+        <!-- show more detail column -->
+        <ng-container matColumnDef="details">
+          <th mat-header-cell *matHeaderCellDef> More Details</th>
+          <td mat-cell *matCellDef="let user;let i = index;">
+            <button
+              class="btn btn-light btn-sm"
+              (click)="onMoreDetails(i)"> Click
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+  <!--mobile view-->
+  <div class="mobile_view">
+    <mat-card *ngFor="let data of charactersResponseList;let i=index;"
+              style="margin:5px;border: 1px solid lightblue;">
+
+      <!-- character name -->
+      <div class="row">
+        <div class="head col-sm-6 col-xs-6 tabledata">
+          <div class="mview-head">Name</div>
+        </div>
+        <div class="mview-body data col-sm-6 col-xs-6 tabledata">{{data.name |titlecase}}</div>
+      </div>
+
+      <!-- character height -->
+      <div class="row">
+        <div class="head col-sm-6 col-xs-6 tabledata">
+          <div class="mview-head">Height</div>
+        </div>
+        <div class="mview-body data col-sm-6 col-xs-6 tabledata">{{data.height|titlecase}}</div>
+      </div>
+
+      <!-- character mass-->
+      <div class="row">
+        <div class="head col-sm-6 col-xs-6 tabledata">
+          <div class="mview-head">Mass</div>
+        </div>
+        <div class="mview-body data col-sm-6 col-xs-6 tabledata">{{data.mass|titlecase}}</div>
+      </div>
+
+      <!-- character birth-->
+      <div class="row">
+        <div class="head col-sm-6 col-xs-6 tabledata">
+          <div class="mview-head">Birth</div>
+        </div>
+        <div class="mview-body data col-sm-6 col-xs-6 tabledata">{{data.birth_year|titlecase}}</div>
+      </div>
+
+      <!-- character gender-->
+      <div class="row">
+        <div class="head col-sm-6 col-xs-6 tabledata">
+          <div class="mview-head">Gender</div>
+        </div>
+        <div class="mview-body data col-sm-6 col-xs-6 tabledata">{{data.gender|titlecase}}</div>
+      </div>
+
+      <!-- character details-->
+      <div class="row">
+        <div class="head col-sm-6 col-xs-6 tabledata">
+          <div class="mview-head">More Details</div>
+        </div>
+        <div class="mview-body data col-sm-6 col-xs-6 tabledata">
+          <button
+            class="btn btn-light btn-sm"
+            (click)="onMoreDetails(i)"> Click
+          </button>
+
+        </div>
+      </div>
+    </mat-card>
+
+  </div>
+
+  <mat-paginator [length]="pageCount" [pageSize]="10"
+                 (page)="pageEvent = $event;onPaginateChange($event)">
+  </mat-paginator>
+
+
+</div>

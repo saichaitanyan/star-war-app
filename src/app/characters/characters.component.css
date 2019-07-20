@@ -1,0 +1,109 @@
+.main {
+  height: 90vh;
+}
+
+.main h5 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.character-content {
+  margin: 0% 5%;
+}
+
+td {
+  padding: 12px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(0, 0, 0, 0.12);
+  width: 12% !important;
+}
+
+th {
+  border-bottom: 1px solid darkgray;
+}
+
+table {
+  width: 100%;
+}
+
+
+.mat-column-name {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 0% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-height {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 0% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-mass {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 0% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-birth_year {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 0% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-gender {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 0% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}

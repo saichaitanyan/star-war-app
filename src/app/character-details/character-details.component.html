@@ -1,0 +1,110 @@
+<div class="content">
+
+  <div (click)="onBack()">
+    <img src="assets/left_arrow.png" alt="left-arrow" id="back-button">
+  </div>
+
+  <mat-toolbar>{{selectedCharacterName}}</mat-toolbar>
+  <mat-card>
+    <ng-container>
+
+      <div class="row">
+        <div class="col-4">Height</div>
+        <div class="col-8">{{selectedCharacterObj?.height}}</div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-4">Mass</div>
+        <div class="col-8">{{selectedCharacterObj?.mass }}</div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-4">Gender</div>
+        <div class="col-8">{{selectedCharacterObj?.gender | titlecase}}</div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-4">Date of Birth</div>
+        <div class="col-8">{{selectedCharacterObj?.birth_year| titlecase}}</div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-4">Hair Color</div>
+        <div class="col-8">{{selectedCharacterObj?.hair_color | titlecase}}</div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-4">Skin Color</div>
+        <div class="col-8">{{selectedCharacterObj?.skin_color | titlecase}}</div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-4">Eye Color</div>
+        <div class="col-8">{{selectedCharacterObj?.eye_color| titlecase}}</div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-4">Films</div>
+        <div class="col-8">
+          <ng-container *ngFor="let film of filmsList">
+            {{film}}
+            <br>
+          </ng-container>
+          <ng-container *ngIf="filmsList.length==0">N/A</ng-container>
+
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-4">Species</div>
+        <div class="col-8">
+          <ng-container *ngFor="let name of speciesList">
+            {{name}}
+            <br>
+          </ng-container>
+          <ng-container *ngIf="speciesList.length==0">N/A</ng-container>
+
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-4">Vehicles</div>
+        <div class="col-8">
+          <ng-container *ngFor="let name of vehicleList">
+            {{name}}
+            <br>
+          </ng-container>
+          <ng-container *ngIf="vehicleList.length==0">N/A</ng-container>
+
+        </div>
+
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-4">Star Ships</div>
+        <div class="col-8">
+          <ng-container *ngFor="let name of starShipsList">
+            {{name}}
+            <br>
+          </ng-container>
+
+          <ng-container *ngIf="starShipsList.length==0">N/A</ng-container>
+        </div>
+
+      </div>
+      <hr>
+
+    </ng-container>
+  </mat-card>
+
+</div>
