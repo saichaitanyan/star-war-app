@@ -21,7 +21,7 @@ export class DataShareService {
    * @param list
    */
   setCharacterList(list: Character[]): void {
-    console.log('subject at set', list);
+    // console.log('subject at set', list);
     this.currentCharacterList = list;
   }
 
@@ -29,23 +29,35 @@ export class DataShareService {
    * get the character list
    */
   getCharacterList(): Character[] {
-    // console.log('subject at get');
     return this.currentCharacterList;
   }
 
-
+  /**
+   * set current page count
+   * @param count
+   */
   setPageCount(count: number) {
     this._pageCount = count;
   }
 
+  /**
+   * get the current page count
+   */
   getPageCount(): number {
     return this._pageCount;
   }
 
+  /**
+   * set the current page index
+   * @param index
+   */
   setPageIndex(index: number) {
     this._pageIndex = index;
   }
 
+  /**
+   * get page index
+   */
   getPageIndex(): number {
     return this._pageIndex;
   }

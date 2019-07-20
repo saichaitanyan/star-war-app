@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DataShareService} from '../services/data-share.service';
 import {Character} from '../model/character';
@@ -78,8 +78,11 @@ export class CharacterDetailsComponent implements OnInit {
     }
   }
 
-
+  /**
+   * navigate to previous page
+   */
   onBack(): void {
     this.router.navigate(['/home']);
   }
+
 }

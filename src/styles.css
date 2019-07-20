@@ -85,3 +85,8 @@ body {
   background-color: rgb(121, 121, 121);
   border-radius: 10px;
 }
+
+.mat-paginator-range-label {
+  display: none;
+  margin: 0 !important;
+}

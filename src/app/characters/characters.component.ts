@@ -33,11 +33,16 @@ export class CharactersComponent implements OnInit {
 
 
   ngOnInit() {
-    /*for initial page size*/
+    // for initial page size
     this.pageEvent.pageSize = 10;
-    /*for initial page size base value*/
+    // for initial page size base value
     this.pageEvent.baseValue = 0;
-    this.getCharacterResponse();
+    // service call to fetch characters from server
+    if (this.shareService.getPageIndex() === -1) {
+      this.getCharacterResponse();
+    } else {
+      this.getCharacterResponse(this.shareService.getPageIndex());
+    }
   }
 
   /**
@@ -55,8 +60,6 @@ export class CharactersComponent implements OnInit {
    * customize the pages based on the length given
    */
   onPaginateChange(page: any) {
-    console.log('on page change', page);
-    // this.shareService.setPageCount(page['pageIndec'])
     this.getCharacterResponse(page['pageIndex'] + 1);
     this.pageEvent = {};
     this.pageEvent.pageSize = page.pageSize * (page.pageIndex + 1);
@@ -71,21 +74,34 @@ export class CharactersComponent implements OnInit {
     if (pageIndex === undefined) {
       pageIndex = -1;
     }
-    // if (this.shareService.getCharacterList().length === 0 || pageIndex !== -1) {
-    this.storyService.getPeople(pageIndex).subscribe((res: Character[]) => {
-      if (res) {
-        this.pageCount = res['count'];
-        this.shareService.setPageCount(this.pageCount);
-        this.charactersResponseList = res['results'];
-        this.shareService.setCharacterList(this.charactersResponseList);
-        // console.log('character result', this.charactersResponseList);
-        this.dataSource = new MatTableDataSource<Character>(this.charactersResponseList);
-      }
-      // sorting
-      this.dataSource = new MatTableDataSource<Character>(this.charactersResponseList);
-      this.dataSource.sort = this.sort;
-    });
-    // }
+    if (pageIndex === -1 || this.shareService.getCharacterList().length === 0) {
+      this.storyService.getPeople(pageIndex).subscribe((res: Character[]) => {
+        if (res) {
+          this.pageCount = res['count'];
+          this.shareService.setPageIndex(pageIndex);
+          this.shareService.setPageCount(this.pageCount);
+          this.charactersResponseList = res['results'];
+          this.shareService.setCharacterList(this.charactersResponseList);
+          this.dataSource = new MatTableDataSource<Character>(this.charactersResponseList);
+        }
+      });
+    } else if (pageIndex !== -1) {
+      this.storyService.getPeople(pageIndex).subscribe((res: Character[]) => {
+        if (res) {
+          this.pageCount = res['count'];
+          this.shareService.setPageIndex(pageIndex);
+          this.shareService.setPageCount(this.pageCount);
+          this.charactersResponseList = res['results'];
+          this.shareService.setCharacterList(this.charactersResponseList);
+          this.dataSource = new MatTableDataSource<Character>(this.charactersResponseList);
+        }
+      });
+    }
+
+    // sorting
+    this.dataSource = new MatTableDataSource<Character>(this.charactersResponseList);
+    this.dataSource.sort = this.sort;
+    console.log('page index', this.pageEvent);
   }
 
   /**
