@@ -2,26 +2,31 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 
-## Development server
+## Prerequisites
+Before you begin, make sure your development environment includes Node.js and an npm package manager.
+### Angular requires Node.js version 10.9.0 or later.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#### Step-1
+To check your version, run node -v in a terminal/console window.
 
-## Code scaffolding
+To get Node.js, go to nodejs.org.
+#### Step-2
+After installing node, it's time to install angular/cli to run the angular application.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To install the CLI using npm, open a terminal/console window and enter the following command:
 
-## Build
+`npm install -g @angular/cli`
+#### Step-3
+After installing angular/cli in your machine, now navigate to project folder.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+`cd angular_task`
 
-## Running unit tests
+Run the following command to install the node modules.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`npm install`
 
-## Running end-to-end tests
+#### Step-4
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+ `ng serve --open`
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Now app will open in browser with this url `http://localhost:4200/`. 
